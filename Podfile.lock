@@ -1,0 +1,88 @@
+PODS:
+  - Alamofire (5.6.1)
+  - AZSClient (0.2.6)
+  - CameraManager (5.1.3)
+  - DateTimePicker (2.5.3)
+  - DropDown (2.3.13)
+  - ImageDetect (1.1.4)
+  - IQKeyboardManagerSwift (6.5.9)
+  - MagicTimer (1.0.4)
+  - NVActivityIndicatorView (5.1.1):
+    - NVActivityIndicatorView/Base (= 5.1.1)
+  - NVActivityIndicatorView/Base (5.1.1)
+  - Optik (0.4.0)
+  - PryntTrimmerView (4.0.2)
+  - ScrollableDatepicker (2.2.0)
+  - SDWebImage (5.12.5):
+    - SDWebImage/Core (= 5.12.5)
+  - SDWebImage/Core (5.12.5)
+  - SkyFloatingLabelTextField (4.0.0)
+  - SteviaLayout (4.7.3)
+  - Toast-Swift (5.0.1)
+  - "UITextView+Placeholder (1.4.0)"
+  - YPImagePicker (5.2.1):
+    - PryntTrimmerView (= 4.0.2)
+    - SteviaLayout (= 4.7.3)
+
+DEPENDENCIES:
+  - Alamofire
+  - AZSClient
+  - CameraManager
+  - DateTimePicker
+  - DropDown
+  - ImageDetect
+  - IQKeyboardManagerSwift
+  - MagicTimer
+  - NVActivityIndicatorView
+  - Optik
+  - ScrollableDatepicker
+  - SDWebImage
+  - SkyFloatingLabelTextField
+  - Toast-Swift
+  - "UITextView+Placeholder"
+  - YPImagePicker
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - AZSClient
+    - CameraManager
+    - DateTimePicker
+    - DropDown
+    - ImageDetect
+    - IQKeyboardManagerSwift
+    - MagicTimer
+    - NVActivityIndicatorView
+    - Optik
+    - PryntTrimmerView
+    - ScrollableDatepicker
+    - SDWebImage
+    - SkyFloatingLabelTextField
+    - SteviaLayout
+    - Toast-Swift
+    - "UITextView+Placeholder"
+    - YPImagePicker
+
+SPEC CHECKSUMS:
+  Alamofire: 87bd8c952f9a4454320fce00d9cc3de57bcadaf5
+  AZSClient: efd576cabf56f97e38cb1b614739f4b0c1906392
+  CameraManager: 73936a52093081ba5e44914e8120ab511360f5d4
+  DateTimePicker: 52701ddf656a50856d3510955933f767cd2c947c
+  DropDown: 8a2116376c1981888557f72ec2ffc9a5e0e456ec
+  ImageDetect: cff4ef43d8cb22cb5bfdd3134f4224f637c3d372
+  IQKeyboardManagerSwift: 6e839c575c4aa1078d58a596e41244e77abe918f
+  MagicTimer: e39ab4d63c759eed0cee34f521002f099bdcc472
+  NVActivityIndicatorView: 1f6c5687f1171810aa27a3296814dc2d7dec3667
+  Optik: 64066ad701b3d440bc4b3847a5f354b602e188aa
+  PryntTrimmerView: 6a43cc90df5d99addeabd33d4ba09b1365322130
+  ScrollableDatepicker: 0f14e38bcd3517e6632220af11e47d29e0f982db
+  SDWebImage: 0905f1b7760fc8ac4198cae0036600d67478751e
+  SkyFloatingLabelTextField: 79ddc40e4ad59707fedbb48d605417aee48bb78a
+  SteviaLayout: c2ecdcff57d44e38fd2f65e54ad52aeae28ca0c4
+  Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
+  "UITextView+Placeholder": d7b0c400921f66523f3a85d74f774512e14f6502
+  YPImagePicker: f36043210c10b0783034eb1947d6e06e31c461e4
+
+PODFILE CHECKSUM: 3f5b145d7d19a8452b304ee17f31d424acda3516
+
+COCOAPODS: 1.11.2
