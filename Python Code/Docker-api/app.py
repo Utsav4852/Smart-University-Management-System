@@ -1,24 +1,21 @@
-
-# from unicodedata import category
 import pyodbc
 from face import *
 from admin import *
 from professor import *
 from student import *
 from flask import Flask, request, jsonify
-# from werkzeug.utils import secure_filename
 
-server = 'tcp:udatasetup.database.windows.net'
-database = 'udatabase'
-username = 'udatasetup'
-password = 'Udata$2011$'
+server = 'Add server'
+database = 'database name'
+username = 'Add username'
+password = '*******'
 driver= '{ODBC Driver 17 for SQL Server}'
 
 app = Flask(__name__)
 
 @app.route('/welcome')
 def index():
-    return 'New, API !'
+    return 'Welcome !'
 
 ################## STUDENT APIS ### START ##################
 
@@ -28,39 +25,16 @@ def login_details():
     received_data = request.get_json()
     return login_data(received_data['data'])
 
-# @app.route('/api/profile1', methods=["POST"])
-# def login_details1():    
-#     received_data = request.get_json()
-#     id = received_data['id']
-#     password = received_data['password']
-#     return login_data1(id, password)
-
-# from student.py
-# @app.route('/api/profile-pic', methods=["POST"])
-# def upload_picture():
-#     # file = request.files['image']
-#     request_data = request.get_json()
-#     profile_pic = request_data['profile_url']
-#     # id = file.filename.split('.')[0]
-#     # id = request_data.get('id')
-#     return profile_img(profile_pic)
-
-# from face.py
-# @app.route('/api/newface', methods=['POST'])
-# def new_face():
-#     request_name = request.get_json()
-#     return face_training(request_name['name'])
-
 # from face.py
 @app.route('/api/face/train', methods=['POST'])
 def face():
     request_data = request.get_json()
     container_name = request_data['student_id']
     return face_training(container_name)
+
 # from face.py
 @app.route('/api/face/recognize', methods=["POST"])
 def recognize():
-    # student_image = request.files['student_image']
     request_data = request.get_json()
     student_id = request_data['student_id']
     registered_course = request_data['registered_course']
@@ -129,9 +103,6 @@ def prof_course_selection():
 
 @app.route('/api/examine/student', methods=['POST'])
 def check_student():
-    # img = request.files['img']
-    # exam_id = request.form['exam_id']
-    # student_id = request.form['student_id']
     request_data = request.get_json()
     img = request_data['img']
     exam_id = request_data['exam_id']
