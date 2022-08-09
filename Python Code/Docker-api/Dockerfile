@@ -1,5 +1,4 @@
 # For more information, please refer to https://aka.ms/vscode-docker-python
-# FROM python:3.8-bullseye
 FROM python:3.8
 
 EXPOSE 8000
@@ -28,28 +27,20 @@ RUN apt-get update
 # INSTALL ODBC DRIVER
 RUN ACCEPT_EULA=Y apt-get install msodbcsql17 --assume-yes
 
-# INSTALL SPACY MODEL
-# RUN pip install spacy==2.0.18 https://github.com/explosion/spacy-models/releases/download/en_core_web_md-2.0.0/en_core_web_md-2.0.0.tar.gz
-
-# pyodbc driver install ==> end
 
 # Install pip requirements
 COPY requirements.txt .
-# COPY . .
 
 # Sample cv2 ===> start
 RUN apt-get update -y && apt-get install -y build-essential cmake \
 libsm6 libxext6 libxrender-dev \
 python3 python3-pip python3-dev
 
-
 # sample cv2 ===> end
 
 # for cv2
 RUN apt update; apt install -y libgl1
 
-# RUN python -c 'from sentence_transformers import SentenceTransformer; SentenceTransformer("all-MiniLM-L6-v2")'
-# RUN python -m pip install pip==20.2.2
 RUN pip3 install -r requirements.txt
 
 RUN python -m spacy download en_core_web_md
