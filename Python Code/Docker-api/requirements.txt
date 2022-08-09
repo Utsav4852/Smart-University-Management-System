@@ -1,0 +1,18 @@
+# To ensure app dependencies are ported from your virtual environment/host machine into your container, run 'pip freeze > requirements.txt' in the terminal to overwrite this file
+flask
+# gunicorn==19.9.0
+gunicorn
+# gevent
+opencv-python
+pyodbc
+# azure
+azure-storage-common
+azure-storage-file
+azure-storage-file-share
+azure-storage-blob
+mediapipe
+opencv-contrib-python
+pillow
+spacy
+sentence_transformers
+language-tool-python
