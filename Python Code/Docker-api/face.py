@@ -1,7 +1,6 @@
 import PIL.Image as Image
 import cv2
 from flask import request, jsonify
-
 import pyodbc
 import os
 import io
@@ -10,16 +9,15 @@ from datetime import date
 import numpy as np
 import mediapipe as mp
 from azure.storage.fileshare import ShareFileClient, ShareDirectoryClient
-# from azure.storage.file import FileService
 from azure.storage.common import CloudStorageAccount
 from azure.storage.blob import BlobServiceClient, ContainerClient
 
 
 ## azure file storage connection ##
-conn_str="DefaultEndpointsProtocol=https;AccountName=facedatafiles;AccountKey=tN1Or/KuNMygxUwj4lD5EtGLxc1Larnq2uRQZ2s9fvAq5bCcoQIcUSTkEXiPsX5I31YIz164aQ3gpXirkxB0vQ==;EndpointSuffix=core.windows.net"
+conn_str="*********"
 
 storage_account_name = 'facedatafiles'
-storage_account_key = 'tN1Or/KuNMygxUwj4lD5EtGLxc1Larnq2uRQZ2s9fvAq5bCcoQIcUSTkEXiPsX5I31YIz164aQ3gpXirkxB0vQ=='
+storage_account_key = '********************'
 
 account = CloudStorageAccount(storage_account_name, storage_account_key)
 file_service = account.create_file_service()
@@ -28,13 +26,6 @@ file_service = account.create_file_service()
 
 blob_service_client = BlobServiceClient.from_connection_string(conn_str)
 
-# def new_face(file):
-#     folder_share = ShareFileClient.from_connection_string(conn_str, share_name="facedatafiles", file_path=file.filename)
-#     source_client = file.read()
-#     # with open(file,'r') as new_file:
-#     folder_share.upload_file(source_client)
-#     return "File Upload Done!"
-#     # return "Face TRaining Completed!"
 
 def train_image(faces, Id, user_name):
     recognizer = cv2.face.LBPHFaceRecognizer_create()
@@ -54,11 +45,9 @@ def face_training(container_name):
    
     mp_face_detection = mp.solutions.face_detection.FaceDetection(min_detection_confidence=0.5)
 
-
     container_client = blob_service_client.get_container_client(container_name)
     
     files = container_client.list_blobs()
-    # print('files:=> ', files)
     train_imgs = []
     train_label = []
 
@@ -68,7 +57,6 @@ def face_training(container_name):
             blob_client = blob_service_client.get_blob_client(container=container_name,blob=file.name)
             blob_read = blob_client.download_blob().readall()
             img = np.array(Image.open(io.BytesIO(bytearray(blob_read))))
-            # img = cv2.resize(img, (128,128))
             img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
             gray_img = cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)
             face_img = mp_face_detection.process(img)
@@ -89,19 +77,14 @@ def face_training(container_name):
 
                     if x>0 and y>0:
                         detected_face = img[y:y+h, x:x+w]
-                        test_img = cv2.resize(gray_img[y:y+h, x:x+w], (512,512))
-                # img = cv2.cvtColor(face_img, cv2.COLOR_RGB2GRAY)
-            # print(img)
-            
+                        test_img = cv2.resize(gray_img[y:y+h, x:x+w], (512,512))           
             
             train_imgs.append(test_img)
             train_label.append(1)
-            # break
         else:
             pass
     
     recognizer = cv2.face.LBPHFaceRecognizer_create()
-    # recognizer = cv2.face.EigenFaceRecognizer_create()
     user_train_img = np.array(train_imgs)
     user_label = np.array(train_label)
 
@@ -137,14 +120,12 @@ def face_recognition(student_id, registered_course, current_date):
             blob_client = blob_service_client.get_blob_client(container='attendance',blob=attandance.name)
             blob_read = blob_client.download_blob().readall()
             pred_img = np.array(Image.open(io.BytesIO(bytearray(blob_read))))
-            # pred_img = np.array(Image.open(io.BytesIO(student_image.read())))
     
     # files from blob for training
     for file in files:
         if file.name == container_name:
             
             blob_client = blob_service_client.get_blob_client(container=container_name,blob=file.name)
-            # blob_read = blob_client.download_blob().readall().decode("utf-8")
 
             with open(container_name+'.yml', "wb") as download_file:
                 download_file.write(blob_client.download_blob().readall())
@@ -199,16 +180,12 @@ def face_recognition(student_id, registered_course, current_date):
         else:
             pass
 
-    if status == 1:
-        # current_date = date.today()
-        
-        server = 'tcp:udatasetup.database.windows.net'
-        database = 'udatabase'
-        username = 'udatasetup'
-        password = 'Udata$2011$'
+    if status == 1:       
+        server = 'Add server'
+        database = 'database name'
+        username = 'Add username'
+        password = '*******'
         driver= '{ODBC Driver 17 for SQL Server}'
-        # attendance_date = current_date.strftime("%d/%m/%Y")
-        print(current_date)
         conn = pyodbc.connect('DRIVER='+driver+';PORT=1433;SERVER='+server+';DATABASE='+database+';UID='+username+';PWD='+ password)
         cursor = conn.cursor()
         cursor.execute("SELECT attendance FROM [dbo].[transcript] WHERE student_id=? AND registered_course=?", student_id, registered_course)
@@ -220,7 +197,6 @@ def face_recognition(student_id, registered_course, current_date):
             
         else:
             new_attendance_date = previous_date + ','+current_date
-            # print(new_attendance_date)
             cursor.execute("UPDATE [dbo].[transcript] SET attendance=? WHERE student_id=? AND registered_course=?", new_attendance_date, student_id, registered_course)
             cursor.commit()
             cursor.close()
