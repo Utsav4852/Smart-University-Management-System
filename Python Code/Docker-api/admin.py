@@ -3,10 +3,10 @@ import pyodbc
 from face import *
 from flask import Flask, request, jsonify
 
-server = 'tcp:udatasetup.database.windows.net'
-database = 'udatabase'
-username = 'udatasetup'
-password = 'Udata$2011$'
+server = 'Add server'
+database = 'database name'
+username = 'Add username'
+password = '*******'
 driver= '{ODBC Driver 17 for SQL Server}'
 
 ### IDENTIFY student, faculty or admin ###
@@ -56,11 +56,6 @@ def update_query_profile(id,fname,lname,contactno,email,pwd,address,city,provinc
     cursor.close()
     status = 1
     
-    # return return_update(id, status)
-    
-    # except Exception:
-    #     return jsonify('error')
-
     return return_update(id, status)
 
 def return_update(id, status):
