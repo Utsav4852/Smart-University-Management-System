@@ -6,15 +6,8 @@ app = Flask(__name__)
 
 @app.route('/welcome')
 def index():
-    return 'New, A!'
+    return 'Welcome !'
 
-# # from student.py
-# @app.route('/api/student-course/prediction', methods=['POST'])
-# def course_prediction():
-#     request_data = request.get_json()
-#     student_intent = request_data['intent']
-#     program_id = request_data['program_id']
-#     return predict_to_course(student_intent, program_id)
 
 # from student.py
 @app.route('/api/exam/student_exam_update', methods=['POST'])
@@ -46,7 +39,6 @@ def attendence_list():
 @app.route('/api/predict-score', methods=['POST'])
 def descriptive_answer_prediction():
     request_data = request.get_json()
-    # total_marks = request_data['total_marks']
     exam_id = request_data['exam_id']
     professor_id = request_data['professor_id']
     student_id = request_data['student_id']
@@ -91,13 +83,6 @@ def submit_report():
     text = request.form['text']
     pdf = request.files['file']
     return pdf_report_submit(text, pdf)
-
-# from professor.py
-# @app.route('/api/examine/student', methods=['POST'])
-# def check_student():
-#     img = request.files['img']
-#     student_id = request.form['student_id']
-#     return examine_student_while_exam(img, student_id)
 
 if __name__ == '__main__':
     app.debug = True
