@@ -1,0 +1,700 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2A15832527EBC3FC004CECA9 /* StudentCourseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A15832427EBC3FC004CECA9 /* StudentCourseVC.swift */; };
+		2A15832727EBDD9B004CECA9 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A15832627EBDD9B004CECA9 /* TableViewCell.swift */; };
+		2A15832927EBE05C004CECA9 /* CollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A15832827EBE05C004CECA9 /* CollectionReusableView.swift */; };
+		2A15832B27EC1573004CECA9 /* ClassroomVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A15832A27EC1573004CECA9 /* ClassroomVC.swift */; };
+		2A15832D27EC371E004CECA9 /* CourseHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A15832C27EC371E004CECA9 /* CourseHomeVC.swift */; };
+		2A2A569D27EBAF4D00F5E1D6 /* AdminCoursesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2A569C27EBAF4D00F5E1D6 /* AdminCoursesVC.swift */; };
+		2A3D469828734991008A93AC /* FacultyResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3D469728734991008A93AC /* FacultyResultVC.swift */; };
+		2A51099C27C43003007E3735 /* AddressVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A51099B27C43003007E3735 /* AddressVC.swift */; };
+		2A5109A127C44100007E3735 /* ContactVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5109A027C44100007E3735 /* ContactVC.swift */; };
+		2A6676592852B43400A3873B /* FacultyExamVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6676582852B43400A3873B /* FacultyExamVC.swift */; };
+		2A89D538285406EE0085272F /* LiveExamVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A89D537285406EE0085272F /* LiveExamVC.swift */; };
+		2A92462D27C4C6C200D9A7C0 /* Pods_Smart_University_Management_System.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A92462C27C4C6C200D9A7C0 /* Pods_Smart_University_Management_System.framework */; };
+		2A92463027C4C75700D9A7C0 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A4F85C427C4BD8E002DE5FC /* XCTest.framework */; platformFilter = ios; settings = {ATTRIBUTES = (Weak, ); }; };
+		2A92463427C4C89500D9A7C0 /* CountryPicker in Frameworks */ = {isa = PBXBuildFile; productRef = 2A92463327C4C89500D9A7C0 /* CountryPicker */; };
+		2A93027D27B1AA0D003DDBB2 /* AdminHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A93027C27B1AA0D003DDBB2 /* AdminHomeVC.swift */; };
+		2A93027F27B1AA5B003DDBB2 /* FacultyHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A93027E27B1AA5B003DDBB2 /* FacultyHomeVC.swift */; };
+		2A93028127B1AA7D003DDBB2 /* StudentHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A93028027B1AA7D003DDBB2 /* StudentHomeVC.swift */; };
+		2A93D35827AE1F3800ECA264 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A93D35727AE1F3800ECA264 /* AppDelegate.swift */; };
+		2A93D35A27AE1F3800ECA264 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A93D35927AE1F3800ECA264 /* SceneDelegate.swift */; };
+		2A93D35C27AE1F3800ECA264 /* FirstVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A93D35B27AE1F3800ECA264 /* FirstVC.swift */; };
+		2A93D35F27AE1F3800ECA264 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A93D35D27AE1F3800ECA264 /* Main.storyboard */; };
+		2A93D36127AE1F3900ECA264 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A93D36027AE1F3900ECA264 /* Assets.xcassets */; };
+		2A93D36427AE1F3900ECA264 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A93D36227AE1F3900ECA264 /* LaunchScreen.storyboard */; };
+		2A93D36D27AE20EB00ECA264 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A93D36C27AE20EB00ECA264 /* Extensions.swift */; };
+		2A93D37127AE313700ECA264 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A93D36F27AE313700ECA264 /* SignUpVC.swift */; };
+		2A93D37227AE313700ECA264 /* SignVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A93D37027AE313700ECA264 /* SignVC.swift */; };
+		2A96601A2852EC2C0015773C /* FacultySetExam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9660192852EC2C0015773C /* FacultySetExam.swift */; };
+		2A96601C285300120015773C /* FacultyAddQuestionAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A96601B285300120015773C /* FacultyAddQuestionAnswer.swift */; };
+		2AA3438228920B350073B5A9 /* FacultyResultLogVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA3438128920B350073B5A9 /* FacultyResultLogVC.swift */; };
+		2ABB56802875E2D400613C5A /* FacultyAssignmentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABB567F2875E2D400613C5A /* FacultyAssignmentVC.swift */; };
+		2ABB56822875E57500613C5A /* FacultyAddAssignmentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABB56812875E57500613C5A /* FacultyAddAssignmentVC.swift */; };
+		2ACA12C928517938003B41DE /* UIViewcontroller+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACA12C828517938003B41DE /* UIViewcontroller+Extension.swift */; };
+		2ACD5F41283FDD5300BCD5E8 /* LibraryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACD5F40283FDD5300BCD5E8 /* LibraryVC.swift */; };
+		2AD5DACA27DA633E005BDDFF /* AdminFacultyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD5DAC927DA633E005BDDFF /* AdminFacultyVC.swift */; };
+		2AD5DACC27DA6349005BDDFF /* AdminStudentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD5DACB27DA6349005BDDFF /* AdminStudentVC.swift */; };
+		2AD5DACF27DA6C13005BDDFF /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD5DACE27DA6C13005BDDFF /* CollectionViewCell.swift */; };
+		2AD5DAD127DA73FA005BDDFF /* StudentInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD5DAD027DA73FA005BDDFF /* StudentInfoVC.swift */; };
+		2ADF09492850FFB800D6EDDB /* FacultyCourseHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADF09482850FFB800D6EDDB /* FacultyCourseHomeVC.swift */; };
+		2ADF094B2851016300D6EDDB /* FacultyAttendanceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADF094A2851016300D6EDDB /* FacultyAttendanceVC.swift */; };
+		2AECBA6A27DBBC410047B6D4 /* FaceTrainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AECBA6927DBBC410047B6D4 /* FaceTrainVC.swift */; };
+		2AF4BEDE281DFD3400D7CA9E /* ExamVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF4BEDD281DFD3400D7CA9E /* ExamVC.swift */; };
+		2AF4BEE0281E008400D7CA9E /* quiz.json in Resources */ = {isa = PBXBuildFile; fileRef = 2AF4BEDF281E008400D7CA9E /* quiz.json */; };
+		2AF655B027C3F0AC00C5F212 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF655AF27C3F0AC00C5F212 /* Constant.swift */; };
+		2AF655B227C3F3E500C5F212 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF655B127C3F3E500C5F212 /* ProfileVC.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		2A15832427EBC3FC004CECA9 /* StudentCourseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentCourseVC.swift; sourceTree = "<group>"; };
+		2A15832627EBDD9B004CECA9 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		2A15832827EBE05C004CECA9 /* CollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionReusableView.swift; sourceTree = "<group>"; };
+		2A15832A27EC1573004CECA9 /* ClassroomVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassroomVC.swift; sourceTree = "<group>"; };
+		2A15832C27EC371E004CECA9 /* CourseHomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseHomeVC.swift; sourceTree = "<group>"; };
+		2A2A569C27EBAF4D00F5E1D6 /* AdminCoursesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminCoursesVC.swift; sourceTree = "<group>"; };
+		2A3D469728734991008A93AC /* FacultyResultVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacultyResultVC.swift; sourceTree = "<group>"; };
+		2A4F85C427C4BD8E002DE5FC /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		2A51099B27C43003007E3735 /* AddressVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressVC.swift; sourceTree = "<group>"; };
+		2A5109A027C44100007E3735 /* ContactVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactVC.swift; sourceTree = "<group>"; };
+		2A6676582852B43400A3873B /* FacultyExamVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacultyExamVC.swift; sourceTree = "<group>"; };
+		2A89D537285406EE0085272F /* LiveExamVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveExamVC.swift; sourceTree = "<group>"; };
+		2A92462C27C4C6C200D9A7C0 /* Pods_Smart_University_Management_System.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_Smart_University_Management_System.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A93027C27B1AA0D003DDBB2 /* AdminHomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminHomeVC.swift; sourceTree = "<group>"; };
+		2A93027E27B1AA5B003DDBB2 /* FacultyHomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacultyHomeVC.swift; sourceTree = "<group>"; };
+		2A93028027B1AA7D003DDBB2 /* StudentHomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentHomeVC.swift; sourceTree = "<group>"; };
+		2A93D35427AE1F3800ECA264 /* Smart University Management System.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Smart University Management System.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A93D35727AE1F3800ECA264 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2A93D35927AE1F3800ECA264 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		2A93D35B27AE1F3800ECA264 /* FirstVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstVC.swift; sourceTree = "<group>"; };
+		2A93D35E27AE1F3800ECA264 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2A93D36027AE1F3900ECA264 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2A93D36327AE1F3900ECA264 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		2A93D36527AE1F3900ECA264 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2A93D36C27AE20EB00ECA264 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		2A93D36F27AE313700ECA264 /* SignUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
+		2A93D37027AE313700ECA264 /* SignVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignVC.swift; sourceTree = "<group>"; };
+		2A9660192852EC2C0015773C /* FacultySetExam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacultySetExam.swift; sourceTree = "<group>"; };
+		2A96601B285300120015773C /* FacultyAddQuestionAnswer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacultyAddQuestionAnswer.swift; sourceTree = "<group>"; };
+		2AA3438128920B350073B5A9 /* FacultyResultLogVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacultyResultLogVC.swift; sourceTree = "<group>"; };
+		2ABB567F2875E2D400613C5A /* FacultyAssignmentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacultyAssignmentVC.swift; sourceTree = "<group>"; };
+		2ABB56812875E57500613C5A /* FacultyAddAssignmentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacultyAddAssignmentVC.swift; sourceTree = "<group>"; };
+		2ACA12C828517938003B41DE /* UIViewcontroller+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewcontroller+Extension.swift"; sourceTree = "<group>"; };
+		2ACD5F40283FDD5300BCD5E8 /* LibraryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryVC.swift; sourceTree = "<group>"; };
+		2AD5DAC927DA633E005BDDFF /* AdminFacultyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminFacultyVC.swift; sourceTree = "<group>"; };
+		2AD5DACB27DA6349005BDDFF /* AdminStudentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminStudentVC.swift; sourceTree = "<group>"; };
+		2AD5DACE27DA6C13005BDDFF /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		2AD5DAD027DA73FA005BDDFF /* StudentInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentInfoVC.swift; sourceTree = "<group>"; };
+		2ADF09482850FFB800D6EDDB /* FacultyCourseHomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacultyCourseHomeVC.swift; sourceTree = "<group>"; };
+		2ADF094A2851016300D6EDDB /* FacultyAttendanceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacultyAttendanceVC.swift; sourceTree = "<group>"; };
+		2AECBA6927DBBC410047B6D4 /* FaceTrainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceTrainVC.swift; sourceTree = "<group>"; };
+		2AF4BEDD281DFD3400D7CA9E /* ExamVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamVC.swift; sourceTree = "<group>"; };
+		2AF4BEDF281E008400D7CA9E /* quiz.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = quiz.json; sourceTree = "<group>"; };
+		2AF655AF27C3F0AC00C5F212 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		2AF655B127C3F3E500C5F212 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		619FDA29B4DE6F5676564A8D /* Pods-Smart University Management System.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart University Management System.debug.xcconfig"; path = "Target Support Files/Pods-Smart University Management System/Pods-Smart University Management System.debug.xcconfig"; sourceTree = "<group>"; };
+		76963164BA183D3E93966467 /* Pods_Smart_University_Management_System.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Smart_University_Management_System.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		92F3B914ECF293D3651FD71F /* Pods-Smart University Management System.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart University Management System.release.xcconfig"; path = "Target Support Files/Pods-Smart University Management System/Pods-Smart University Management System.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2A93D35127AE1F3800ECA264 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A92462D27C4C6C200D9A7C0 /* Pods_Smart_University_Management_System.framework in Frameworks */,
+				2A92463427C4C89500D9A7C0 /* CountryPicker in Frameworks */,
+				2A92463027C4C75700D9A7C0 /* XCTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2A15832327EBC29A004CECA9 /* Student */ = {
+			isa = PBXGroup;
+			children = (
+				2A93028027B1AA7D003DDBB2 /* StudentHomeVC.swift */,
+				2A15832427EBC3FC004CECA9 /* StudentCourseVC.swift */,
+				2A15832C27EC371E004CECA9 /* CourseHomeVC.swift */,
+				2AF4BEDD281DFD3400D7CA9E /* ExamVC.swift */,
+				2ACD5F40283FDD5300BCD5E8 /* LibraryVC.swift */,
+				2A89D537285406EE0085272F /* LiveExamVC.swift */,
+			);
+			path = Student;
+			sourceTree = "<group>";
+		};
+		2A5CA9BD289F090D00136E34 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				2A93D36F27AE313700ECA264 /* SignUpVC.swift */,
+				2A93D37027AE313700ECA264 /* SignVC.swift */,
+				2A93D35B27AE1F3800ECA264 /* FirstVC.swift */,
+				2AF655B127C3F3E500C5F212 /* ProfileVC.swift */,
+				2A51099B27C43003007E3735 /* AddressVC.swift */,
+				2A5109A027C44100007E3735 /* ContactVC.swift */,
+				2AECBA6927DBBC410047B6D4 /* FaceTrainVC.swift */,
+				2A15832A27EC1573004CECA9 /* ClassroomVC.swift */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		2A93D34B27AE1F3800ECA264 = {
+			isa = PBXGroup;
+			children = (
+				2A93D35627AE1F3800ECA264 /* Smart University Management System */,
+				2A93D35527AE1F3800ECA264 /* Products */,
+				AC88296784699C7BBDF74F18 /* Pods */,
+				DBF06B4EA9BF839D23F982E3 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		2A93D35527AE1F3800ECA264 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2A93D35427AE1F3800ECA264 /* Smart University Management System.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2A93D35627AE1F3800ECA264 /* Smart University Management System */ = {
+			isa = PBXGroup;
+			children = (
+				2ACA12C72851792F003B41DE /* Loader */,
+				2AD5DACD27DA6C05005BDDFF /* Cell */,
+				2AF655AE27C3F09C00C5F212 /* Constant */,
+				2A93D36E27AE30F300ECA264 /* View Controllers */,
+				2A93D36B27AE20CB00ECA264 /* Extensions */,
+				2A93D35727AE1F3800ECA264 /* AppDelegate.swift */,
+				2A93D35927AE1F3800ECA264 /* SceneDelegate.swift */,
+				2A93D35D27AE1F3800ECA264 /* Main.storyboard */,
+				2A93D36027AE1F3900ECA264 /* Assets.xcassets */,
+				2A93D36227AE1F3900ECA264 /* LaunchScreen.storyboard */,
+				2A93D36527AE1F3900ECA264 /* Info.plist */,
+			);
+			path = "Smart University Management System";
+			sourceTree = "<group>";
+		};
+		2A93D36B27AE20CB00ECA264 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2A93D36C27AE20EB00ECA264 /* Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		2A93D36E27AE30F300ECA264 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2ADF09472850E8B500D6EDDB /* Faculty */,
+				2A15832327EBC29A004CECA9 /* Student */,
+				2AD5DAC827DA6311005BDDFF /* Admin */,
+				2A5CA9BD289F090D00136E34 /* Other */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		2ACA12C72851792F003B41DE /* Loader */ = {
+			isa = PBXGroup;
+			children = (
+				2ACA12C828517938003B41DE /* UIViewcontroller+Extension.swift */,
+			);
+			path = Loader;
+			sourceTree = "<group>";
+		};
+		2AD5DAC827DA6311005BDDFF /* Admin */ = {
+			isa = PBXGroup;
+			children = (
+				2A93027C27B1AA0D003DDBB2 /* AdminHomeVC.swift */,
+				2AD5DAC927DA633E005BDDFF /* AdminFacultyVC.swift */,
+				2AD5DACB27DA6349005BDDFF /* AdminStudentVC.swift */,
+				2AD5DAD027DA73FA005BDDFF /* StudentInfoVC.swift */,
+				2A2A569C27EBAF4D00F5E1D6 /* AdminCoursesVC.swift */,
+			);
+			path = Admin;
+			sourceTree = "<group>";
+		};
+		2AD5DACD27DA6C05005BDDFF /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				2AD5DACE27DA6C13005BDDFF /* CollectionViewCell.swift */,
+				2A15832627EBDD9B004CECA9 /* TableViewCell.swift */,
+				2A15832827EBE05C004CECA9 /* CollectionReusableView.swift */,
+				2AF4BEDF281E008400D7CA9E /* quiz.json */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		2ADF09472850E8B500D6EDDB /* Faculty */ = {
+			isa = PBXGroup;
+			children = (
+				2A93027E27B1AA5B003DDBB2 /* FacultyHomeVC.swift */,
+				2ADF09482850FFB800D6EDDB /* FacultyCourseHomeVC.swift */,
+				2ADF094A2851016300D6EDDB /* FacultyAttendanceVC.swift */,
+				2A6676582852B43400A3873B /* FacultyExamVC.swift */,
+				2A9660192852EC2C0015773C /* FacultySetExam.swift */,
+				2A96601B285300120015773C /* FacultyAddQuestionAnswer.swift */,
+				2A3D469728734991008A93AC /* FacultyResultVC.swift */,
+				2ABB567F2875E2D400613C5A /* FacultyAssignmentVC.swift */,
+				2ABB56812875E57500613C5A /* FacultyAddAssignmentVC.swift */,
+				2AA3438128920B350073B5A9 /* FacultyResultLogVC.swift */,
+			);
+			path = Faculty;
+			sourceTree = "<group>";
+		};
+		2AF655AE27C3F09C00C5F212 /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				2AF655AF27C3F0AC00C5F212 /* Constant.swift */,
+			);
+			path = Constant;
+			sourceTree = "<group>";
+		};
+		AC88296784699C7BBDF74F18 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				619FDA29B4DE6F5676564A8D /* Pods-Smart University Management System.debug.xcconfig */,
+				92F3B914ECF293D3651FD71F /* Pods-Smart University Management System.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		DBF06B4EA9BF839D23F982E3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2A92462C27C4C6C200D9A7C0 /* Pods_Smart_University_Management_System.framework */,
+				2A4F85C427C4BD8E002DE5FC /* XCTest.framework */,
+				76963164BA183D3E93966467 /* Pods_Smart_University_Management_System.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2A93D35327AE1F3800ECA264 /* Smart University Management System */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2A93D36827AE1F3900ECA264 /* Build configuration list for PBXNativeTarget "Smart University Management System" */;
+			buildPhases = (
+				D5672343660F91ECD1688A9D /* [CP] Check Pods Manifest.lock */,
+				2A93D35027AE1F3800ECA264 /* Sources */,
+				2A93D35127AE1F3800ECA264 /* Frameworks */,
+				2A93D35227AE1F3800ECA264 /* Resources */,
+				4F1950BBBBDFBB0B3180DC95 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Smart University Management System";
+			packageProductDependencies = (
+				2A92463327C4C89500D9A7C0 /* CountryPicker */,
+			);
+			productName = "Smart University Management System";
+			productReference = 2A93D35427AE1F3800ECA264 /* Smart University Management System.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2A93D34C27AE1F3800ECA264 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1300;
+				LastUpgradeCheck = 1300;
+				TargetAttributes = {
+					2A93D35327AE1F3800ECA264 = {
+						CreatedOnToolsVersion = 13.0;
+					};
+				};
+			};
+			buildConfigurationList = 2A93D34F27AE1F3800ECA264 /* Build configuration list for PBXProject "Smart University Management System" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2A93D34B27AE1F3800ECA264;
+			packageReferences = (
+				2A92463227C4C89500D9A7C0 /* XCRemoteSwiftPackageReference "CountryPicker" */,
+			);
+			productRefGroup = 2A93D35527AE1F3800ECA264 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2A93D35327AE1F3800ECA264 /* Smart University Management System */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2A93D35227AE1F3800ECA264 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A93D36427AE1F3900ECA264 /* LaunchScreen.storyboard in Resources */,
+				2A93D36127AE1F3900ECA264 /* Assets.xcassets in Resources */,
+				2A93D35F27AE1F3800ECA264 /* Main.storyboard in Resources */,
+				2AF4BEE0281E008400D7CA9E /* quiz.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4F1950BBBBDFBB0B3180DC95 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Smart University Management System/Pods-Smart University Management System-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Smart University Management System/Pods-Smart University Management System-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Smart University Management System/Pods-Smart University Management System-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D5672343660F91ECD1688A9D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Smart University Management System-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2A93D35027AE1F3800ECA264 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A96601A2852EC2C0015773C /* FacultySetExam.swift in Sources */,
+				2A15832D27EC371E004CECA9 /* CourseHomeVC.swift in Sources */,
+				2A96601C285300120015773C /* FacultyAddQuestionAnswer.swift in Sources */,
+				2A2A569D27EBAF4D00F5E1D6 /* AdminCoursesVC.swift in Sources */,
+				2A15832927EBE05C004CECA9 /* CollectionReusableView.swift in Sources */,
+				2A93028127B1AA7D003DDBB2 /* StudentHomeVC.swift in Sources */,
+				2ADF094B2851016300D6EDDB /* FacultyAttendanceVC.swift in Sources */,
+				2AA3438228920B350073B5A9 /* FacultyResultLogVC.swift in Sources */,
+				2A51099C27C43003007E3735 /* AddressVC.swift in Sources */,
+				2ABB56822875E57500613C5A /* FacultyAddAssignmentVC.swift in Sources */,
+				2A6676592852B43400A3873B /* FacultyExamVC.swift in Sources */,
+				2A93027F27B1AA5B003DDBB2 /* FacultyHomeVC.swift in Sources */,
+				2A93027D27B1AA0D003DDBB2 /* AdminHomeVC.swift in Sources */,
+				2A15832527EBC3FC004CECA9 /* StudentCourseVC.swift in Sources */,
+				2A93D35C27AE1F3800ECA264 /* FirstVC.swift in Sources */,
+				2A93D37227AE313700ECA264 /* SignVC.swift in Sources */,
+				2ACA12C928517938003B41DE /* UIViewcontroller+Extension.swift in Sources */,
+				2AF4BEDE281DFD3400D7CA9E /* ExamVC.swift in Sources */,
+				2A93D35827AE1F3800ECA264 /* AppDelegate.swift in Sources */,
+				2A93D35A27AE1F3800ECA264 /* SceneDelegate.swift in Sources */,
+				2AF655B027C3F0AC00C5F212 /* Constant.swift in Sources */,
+				2A5109A127C44100007E3735 /* ContactVC.swift in Sources */,
+				2A15832727EBDD9B004CECA9 /* TableViewCell.swift in Sources */,
+				2AECBA6A27DBBC410047B6D4 /* FaceTrainVC.swift in Sources */,
+				2A89D538285406EE0085272F /* LiveExamVC.swift in Sources */,
+				2AD5DACF27DA6C13005BDDFF /* CollectionViewCell.swift in Sources */,
+				2A3D469828734991008A93AC /* FacultyResultVC.swift in Sources */,
+				2A93D37127AE313700ECA264 /* SignUpVC.swift in Sources */,
+				2A15832B27EC1573004CECA9 /* ClassroomVC.swift in Sources */,
+				2ADF09492850FFB800D6EDDB /* FacultyCourseHomeVC.swift in Sources */,
+				2AF655B227C3F3E500C5F212 /* ProfileVC.swift in Sources */,
+				2ABB56802875E2D400613C5A /* FacultyAssignmentVC.swift in Sources */,
+				2A93D36D27AE20EB00ECA264 /* Extensions.swift in Sources */,
+				2ACD5F41283FDD5300BCD5E8 /* LibraryVC.swift in Sources */,
+				2AD5DACA27DA633E005BDDFF /* AdminFacultyVC.swift in Sources */,
+				2AD5DAD127DA73FA005BDDFF /* StudentInfoVC.swift in Sources */,
+				2AD5DACC27DA6349005BDDFF /* AdminStudentVC.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		2A93D35D27AE1F3800ECA264 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2A93D35E27AE1F3800ECA264 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		2A93D36227AE1F3900ECA264 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2A93D36327AE1F3900ECA264 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2A93D36627AE1F3900ECA264 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				EXCLUDED_ARCHS = "";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		2A93D36727AE1F3900ECA264 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				EXCLUDED_ARCHS = "";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2A93D36927AE1F3900ECA264 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 619FDA29B4DE6F5676564A8D /* Pods-Smart University Management System.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7QR955YTCT;
+				EXCLUDED_ARCHS = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Smart University Management System/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Smart University";
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need to access your camara to take a profile picture";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need to access your location to provide you a better experience";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "We need to access your photo library to select a profile picture";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kamal.smartuniversity;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "Common Provisioning Profile";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2A93D36A27AE1F3900ECA264 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 92F3B914ECF293D3651FD71F /* Pods-Smart University Management System.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7QR955YTCT;
+				EXCLUDED_ARCHS = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Smart University Management System/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Smart University";
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need to access your camara to take a profile picture";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need to access your location to provide you a better experience";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "We need to access your photo library to select a profile picture";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kamal.smartuniversity;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "Common Provisioning Profile";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2A93D34F27AE1F3800ECA264 /* Build configuration list for PBXProject "Smart University Management System" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2A93D36627AE1F3900ECA264 /* Debug */,
+				2A93D36727AE1F3900ECA264 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2A93D36827AE1F3900ECA264 /* Build configuration list for PBXNativeTarget "Smart University Management System" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2A93D36927AE1F3900ECA264 /* Debug */,
+				2A93D36A27AE1F3900ECA264 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2A92463227C4C89500D9A7C0 /* XCRemoteSwiftPackageReference "CountryPicker" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mobven/CountryPicker.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2A92463327C4C89500D9A7C0 /* CountryPicker */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2A92463227C4C89500D9A7C0 /* XCRemoteSwiftPackageReference "CountryPicker" */;
+			productName = CountryPicker;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 2A93D34C27AE1F3800ECA264 /* Project object */;
+}
