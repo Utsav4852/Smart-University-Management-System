@@ -7,12 +7,11 @@ import requests
 import language_tool_python
 from sentence_transformers import SentenceTransformer, util
 
-server = 'tcp:udatasetup.database.windows.net'
-database = 'udatabase'
-username = 'udatasetup'
-password = 'Udata$2011$'
+server = 'Add server'
+database = 'database name'
+username = 'Add username'
+password = '*******'
 driver= '{ODBC Driver 17 for SQL Server}'
-
 
 
 def login_data(received_data):
@@ -35,11 +34,6 @@ def login_data(received_data):
     for i in row_data:
         dict_data.append(dict(zip(column_names,i)))
 
-    # dict_data = [i for i in dict_data.value.strip()]
-    # received_data = request.get_json()
-    # print(type(received_data))
-
-    # sort_data = []
     if received_data.isdigit() == False:
         sort_data = [stu for stu in dict_data if stu['email'] == received_data]
 
@@ -78,20 +72,14 @@ def select_student_from_course(student_id,term):
             cursor.execute('SELECT * FROM [dbo].[subject] WHERE course_name=?',name)
             course_data = cursor.fetchall()
             course_row_data = [row for row in course_data]
-            # print([dict(zip(course_column_name,data)) for data in course_row_data])
-            # print('=============')
-            # print('column_name=>', course_column_name)
             final_course_data.append([dict(zip(course_column_name,data)) for data in course_row_data])
 
         
         dict_data = []
 
         for i in range(len(data)):
-            print(data[i])
-            # print(final_course_data[i])
-            # new_dic = data[i].copy()
             dict_data.append(dict(data[i], **final_course_data[i][0]))
-        # cursor.execute('SELECT ')
+            
     elif term and not student_id:
         cursor.execute('SELECT * FROM [dbo].[transcript] WHERE term=?',term)
         rows = cursor.fetchall()
@@ -120,7 +108,6 @@ def select_student_from_course(student_id,term):
         dict_data = []
 
         for i in range(len(data)):
-            # new_dic = data[i].copy()
             dict_data.append(dict(data[i], **final_course_data[i][0]))
 
     elif student_id and term:
@@ -140,16 +127,12 @@ def select_student_from_course(student_id,term):
             course_data = cursor.fetchall()
             course_row_data = [row for row in course_data]
             
-            # print('column_name=>', course_column_name)
             final_course_data.append([dict(zip(course_column_name,data)) for data in course_row_data])
 
         dict_data = []
 
         for i in range(len(data)):
-            # new_dic = data[i].copy()
             dict_data.append(dict(data[i], **final_course_data[i][0]))
-            # print(final_course_data[i][0])
-            # print(data[i])
         
     return {'data': dict_data}
 
@@ -176,13 +159,7 @@ def predict_to_books(title,any_suggestion, prof_description):
                 book_description = i['volumeInfo']['description']
                 model = SentenceTransformer('all-MiniLM-L6-v2')
 
-                #Compute embeddings
-                # embeddings_1 = model.encode(prof_description, convert_to_tensor=False)
-                # embeddings_2 = model.encode(book_description, convert_to_tensor=False)
-                #Compute cosine-similarities for each sentence with each other sentence
-                # cosine_scores = util.cos_sim(embeddings_1, embeddings_2)
                 cosine_scores = nlp(prof_description).similarity(nlp(book_description))
-                # print(cosine_scores)
 
                 if cosine_scores >= 0.90:
                     if 'imageLinks' in i['volumeInfo'].keys():
@@ -193,14 +170,12 @@ def predict_to_books(title,any_suggestion, prof_description):
                         'authors': i['volumeInfo']['authors'],
                         'thumbnail' : '',
                                         'description' : i['volumeInfo']['description']}))
-    # print(suggested_books)
     return {'data': suggested_books}
 
 def predict_to_course(student_intent, program_id):
-    # spacy.cli.download("en_core_web_md")
-    # print('start')
+
     nlp = spacy.load('en_core_web_md')
-    # print('finish')
+
     conn = pyodbc.connect('DRIVER='+driver+';PORT=1433;SERVER='+server+';DATABASE='+database+';UID='+username+';PWD='+ password)
     cursor = conn.cursor()
     cursor.execute('SELECT * FROM [dbo].[subject] WHERE program_id=?', program_id)
@@ -209,16 +184,11 @@ def predict_to_course(student_intent, program_id):
     column_names = [i.column_name for i in cursor.columns(table='subject')]
 
     row_data = [i for i in row_data]
-    # print(row_data)
     course_data = []
 
     for row in row_data:
-        # print(row)
         similarity = nlp(student_intent).similarity(nlp(row[-3]))
-        # print(similarity)
         if similarity >= 0.8:
             course_data.append(dict(zip(column_names,row)))
 
-    # course_data = sorted(course_data, key = lambda x: x[1], reverse=True)[:2]
-    # course_data = [i[0] for i in course_data]
     return {'data': course_data}
