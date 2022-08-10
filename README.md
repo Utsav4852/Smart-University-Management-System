@@ -38,4 +38,4 @@ During this pandemic time, the majority of exams are done online. It is hard to 
 
 ## Code
 
-We worked using python based object-orented programming language for API support and Swift for an iOS app. Python code available <a href='https://github.com/iOSDevKamal/Smart-University-Management-System/tree/main/Python%20Code'>here</a>. This folder contains 2 saperate folders as we have limited storage available on Azure to store the docker image because these containers also include environment files. 
+We worked using python based object-orented programming language for API support and Swift for an iOS app. Python code available <a href='https://github.com/iOSDevKamal/Smart-University-Management-System/tree/main/Python%20Code'>here</a>. This folder contains 2 saperate folders to store the docker image because these containers also include environment files.
