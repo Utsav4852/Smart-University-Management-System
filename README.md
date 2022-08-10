@@ -35,7 +35,3 @@ Sometimes it is hard for the professors to manege the multiple courses at the sa
 During this pandemic time, the majority of exams are done online. It is hard to detect whther a student is cheating or not. Our system will randomly take images at a random time and it will detect whether he/she is getting any help or not.  It will upload images to Azure storage. Later on, it will reflect on professor side with suspicious and match tags. Workflow of this system shown below:
 
 ![Surveillance System](https://github.com/iOSDevKamal/Smart-University-Management-System/blob/main/Flow%20Charts/5.%20Surveillance%20System.png)
-
-## Code
-
-We worked using python based object-orented programming language for API support and swift for designing purposes. Python code available <a href='https://github.com/iOSDevKamal/Smart-University-Management-System/tree/main/Python%20Code'>here</a>. This folder contains 2 saperate folders as we have limited storage available on Azure to store the docker image because this containers also includes environment files. 
