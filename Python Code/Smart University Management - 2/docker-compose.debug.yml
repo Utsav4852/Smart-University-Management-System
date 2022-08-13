@@ -1,0 +1,14 @@
+version: '3.4'
+
+services:
+  coursepred:
+    image: coursepred
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    command: ["sh", "-c", "pip install debugpy -t /tmp && python /tmp/debugpy --wait-for-client --listen 0.0.0.0:5679 -m flask run --no-debugger --no-reload --host 0.0.0.0 --port 9001"]
+    ports:
+      - 9001:9001
+      - 5679:5679
+    environment:
+      - FLASK_APP=app.py
