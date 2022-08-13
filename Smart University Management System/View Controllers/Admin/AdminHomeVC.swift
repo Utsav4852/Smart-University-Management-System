@@ -11,7 +11,6 @@ class AdminHomeVC: UIViewController, UICollectionViewDelegate, UICollectionViewD
     
     @IBOutlet weak var titleLbl: UILabel!
     @IBOutlet weak var profileImgView: UIImageView!
-    
     @IBOutlet weak var collectionView: UICollectionView!
     
     var categoryArr = ["Courses"]
@@ -19,10 +18,8 @@ class AdminHomeVC: UIViewController, UICollectionViewDelegate, UICollectionViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         titleLbl.printTitle()
-        
         if let login = UserDefaults.standard.dictionary(forKey: "login") as? [String:Any] {
             let profile_pic = login["profile_pic"] as! String
-            
             DispatchQueue.global().async { [weak self] in
                 if let data = try? Data(contentsOf: URL.init(string: profile_pic)!) {
                     if let image = UIImage(data: data) {
@@ -53,10 +50,8 @@ class AdminHomeVC: UIViewController, UICollectionViewDelegate, UICollectionViewD
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categoryCell", for: indexPath) as! CollectionViewCell
-        
         cell.adminHomeCategoryName.text = categoryArr[indexPath.row]
         cell.adminHomeCategoryImgView.image = UIImage.init(named: categoryArr[indexPath.row])
-        
         return cell
     }
     
@@ -66,7 +61,6 @@ class AdminHomeVC: UIViewController, UICollectionViewDelegate, UICollectionViewD
             self.performSegue(withIdentifier: "courseSegue", sender: nil)
         }
     }
-
     
     @IBAction func profileAction(_ sender: Any) {
         self.performSegue(withIdentifier: "profileSegue", sender: nil)
@@ -79,5 +73,4 @@ class AdminHomeVC: UIViewController, UICollectionViewDelegate, UICollectionViewD
     @IBAction func studentAction(_ sender: Any) {
         self.performSegue(withIdentifier: "studentSegue", sender: nil)
     }
-   
 }

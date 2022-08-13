@@ -13,9 +13,10 @@ class FacultyAddQuestionAnswer: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var answerTxtView: UITextView!
     @IBOutlet weak var questionTxtField: SkyFloatingLabelTextField!
-    let MAX_LENGTH_PHONENUMBER = 3
-    let ACCEPTABLE_NUMBERS     = "0123456789"
     @IBOutlet weak var markTxtField: UITextField!
+    
+    let MAX_LENGTH_PHONENUMBER = 3
+    let ACCEPTABLE_NUMBERS = "0123456789"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,9 +49,7 @@ class FacultyAddQuestionAnswer: UIViewController, UITextFieldDelegate {
         return (strValid && (newLength <= MAX_LENGTH_PHONENUMBER))
     }
     
-    
     @IBAction func closeAction(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
-    
 }

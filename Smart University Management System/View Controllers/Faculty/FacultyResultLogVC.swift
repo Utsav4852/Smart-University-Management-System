@@ -20,7 +20,6 @@ class FacultyResultLogVC: UIViewController, UITableViewDataSource, UITableViewDe
         super.viewDidLoad()
         getLogs()
         designInit()
-        
         let name = resultDict["name"] as! String
         logLbl.text = "Log (\(name))"
     }
@@ -46,10 +45,8 @@ class FacultyResultLogVC: UIViewController, UITableViewDataSource, UITableViewDe
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "logCell", for: indexPath) as! TableViewCell
-        
         let parti = logArr[indexPath.row]
         cell.logTimeLbl.text = parti["time"] as! String
-        
         let status = parti["is_cheating"] as! String
         if status == "true" {
             //true
@@ -60,18 +57,14 @@ class FacultyResultLogVC: UIViewController, UITableViewDataSource, UITableViewDe
             cell.logStatusLbl.text = "Match"
             cell.logStatusLbl.textColor = .systemGreen
         }
-        
         cell.logViewBtn.tag = indexPath.row
         cell.logViewBtn.addTarget(self, action: #selector(viewImageAction(_:)), for: .touchUpInside)
-        
         return cell
     }
     
     @objc func viewImageAction(_ sender: UIButton) {
         let parti = logArr[sender.tag]
         let url = parti["url"] as! String
-        
-        //let imgView = UIImageView()
         DispatchQueue.global().async { [weak self] in
             if let data = try? Data(contentsOf: URL.init(string: url)!) {
                 if let image = UIImage(data: data) {
@@ -86,25 +79,9 @@ class FacultyResultLogVC: UIViewController, UITableViewDataSource, UITableViewDe
                 }
             }
         }
-//        imgView.sd_setImage(with: URL.init(string: url)) { img, error, cache, url in
-//            self.dismissLoader()
-//            if error == nil {
-//                let imageViewer = Optik.imageViewer(
-//                    withImages: [
-//                        img!
-//                    ]
-//                )
-//                self.present(imageViewer, animated: true, completion: nil)
-//            }
-//
-//        }
-        
-        
-        
     }
     
     @IBAction func closeAction(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
-    
 }

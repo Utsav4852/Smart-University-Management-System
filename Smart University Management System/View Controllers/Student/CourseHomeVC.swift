@@ -9,16 +9,13 @@ import UIKit
 
 class CourseHomeVC: UIViewController, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     
-    var courseDict = [String:Any]()
-    
     @IBOutlet weak var courseTitle: UILabel!
-    var courseName = String()
-    var facultyId = String()
-    
-    var isTrain = false
-    
     @IBOutlet weak var collectionView: UICollectionView!
     
+    var courseDict = [String:Any]()
+    var courseName = String()
+    var facultyId = String()
+    var isTrain = false
     var sectionArr = ["Attendance", "Assessment", "Books"]
     var dict = ["Attendance" : ["Attendance"], "Assessment": ["Exam"], "Books": ["Book Suggestion"]]
     
@@ -45,21 +42,16 @@ class CourseHomeVC: UIViewController, UICollectionViewDelegate, UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "header", for: indexPath) as! CollectionReusableView
-        
         headerView.titleLbl.text = sectionArr[indexPath.section]
-        
         return headerView
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CollectionViewCell
-        
         let section = sectionArr[indexPath.section]
         let parti = dict[section] as! [String]
-        
         cell.categoryName.text = parti[indexPath.row]
         cell.categoryImgView.image = UIImage.init(named: parti[indexPath.row])
-        
         return cell
     }
 
@@ -108,5 +100,4 @@ class CourseHomeVC: UIViewController, UICollectionViewDelegate, UICollectionView
     @IBAction func backAction(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
-    
 }

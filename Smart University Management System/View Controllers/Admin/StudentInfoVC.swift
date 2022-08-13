@@ -10,8 +10,6 @@ import UIKit
 class StudentInfoVC: UIViewController {
     
     @IBOutlet weak var titleLbl: UILabel!
-    var studentDict = [String:Any]()
-    
     @IBOutlet weak var studentIDLbl: UILabel!
     @IBOutlet weak var nameLbl: UILabel!
     @IBOutlet weak var emailLbl: UILabel!
@@ -20,6 +18,8 @@ class StudentInfoVC: UIViewController {
     @IBOutlet weak var profileImgView: UIImageView!
     @IBOutlet weak var courseLbl: UILabel!
     @IBOutlet weak var admissionTermLbl: UILabel!
+    
+    var studentDict = [String:Any]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +42,6 @@ class StudentInfoVC: UIViewController {
         let course = studentDict["course"] as! String
         let admission_term = studentDict["admission_term"] as! String
         profileImgView.sd_setImage(with: URL.init(string: profile), placeholderImage: UIImage.init(named: "user_big"), options: .refreshCached, completed: nil)
-        
         let name = "\(firstName) \(lastName)"
         nameLbl.text = name
         titleLbl.text = name
@@ -56,6 +55,4 @@ class StudentInfoVC: UIViewController {
     @IBAction func closeAction(_ sender: Any) {
         self.navigationController?.popViewController(animated: false)
     }
-    
-
 }

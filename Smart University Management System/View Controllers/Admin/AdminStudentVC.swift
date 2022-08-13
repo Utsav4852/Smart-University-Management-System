@@ -25,18 +25,14 @@ class AdminStudentVC: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     func getStudents() {
         let url = "https://apidockerpython.azurewebsites.net//api/identify"
-        
         let param : [String:Any] = [
             "identify" : "3"
         ]
-        
         let jsonData = try! JSONSerialization.data(withJSONObject: param)
-
         var request = URLRequest.init(url: URL.init(string: url)!)
         request.httpMethod = "POST"
         request.httpBody = jsonData
         request.headers = HTTPHeaders.init([HTTPHeader.init(name: "Content-Type", value: "application/json")])
-        
         AF.request(request).responseJSON { [self] result in
             if let value = result.value as? [[String:Any]] {
                 studentArr = value
@@ -87,7 +83,6 @@ class AdminStudentVC: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "studentCell", for: indexPath) as! CollectionViewCell
-        
         let parti = studentArr[indexPath.row]
         let firstname = parti["firstname"] as! String
         let lastname = parti["lastname"] as! String
@@ -114,5 +109,4 @@ class AdminStudentVC: UIViewController, UICollectionViewDelegate, UICollectionVi
     @IBAction func backAction(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
-
 }

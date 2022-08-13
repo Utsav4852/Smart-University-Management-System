@@ -25,12 +25,10 @@ class ContactVC: UIViewController, CountryPickerDelegate{
     @IBOutlet weak var contactTxtField: SkyFloatingLabelTextField!
     @IBOutlet weak var countryCodeBtn: UIButton!
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         let prefix = PhoneHelper.getCountryCode()
         countryCodeBtn.setTitle(prefix, for: .normal)
-        
         if let login = UserDefaults.standard.dictionary(forKey: "login") as? [String:Any] {
             let country_code = login["country_code"] as! String
             countryCodeBtn.setTitle(country_code, for: .normal)
@@ -42,7 +40,6 @@ class ContactVC: UIViewController, CountryPickerDelegate{
     @IBAction func countryCodeAction(_ sender: Any) {
         let prefix = PhoneHelper.getCountryCode()
         countryCodeBtn.setTitle(prefix, for: .normal)
-        
         let countryPicker = CountryPickerViewController()
         countryPicker.selectedCountry = NSLocale.current.regionCode!
         countryPicker.delegate = self
@@ -61,18 +58,13 @@ class ContactVC: UIViewController, CountryPickerDelegate{
         if let login = UserDefaults.standard.dictionary(forKey: "login") as? [String:Any] {
             var loginDict = login
             let url = "https://apidockerpython.azurewebsites.net//api/update"
-            
             loginDict["country_code"] = countryCodeBtn.titleLabel?.text
             loginDict["contact_no"] = contactTxtField.text
-            
-            
             let jsonData = try! JSONSerialization.data(withJSONObject: loginDict)
-            
             var request = URLRequest.init(url: URL.init(string: url)!)
             request.httpMethod = "POST"
             request.httpBody = jsonData
             request.headers = HTTPHeaders.init([HTTPHeader.init(name: "Content-Type", value: "application/json")])
-            
             AF.request(request).responseJSON { [self] result in
                 if let value = result.value as? [String:Any] {
                     let status_code = value["status_code"] as! Int
@@ -80,14 +72,11 @@ class ContactVC: UIViewController, CountryPickerDelegate{
                         //Successful
                         let data = value["data"] as! [[String:Any]]
                         let dict = data[0]
-                        
                         UserDefaults.standard.set(dict, forKey: "login")
                         UserDefaults.standard.synchronize()
-                        
                         self.dismiss(animated: true) {
                             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "update"), object: nil)
                         }
-                        
                     }
                     else {
                         self.view.makeToast("Something went wrong!")
@@ -96,6 +85,4 @@ class ContactVC: UIViewController, CountryPickerDelegate{
             }
         }
     }
-    
-    
 }

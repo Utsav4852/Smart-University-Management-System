@@ -8,10 +8,9 @@
 import UIKit
 
 class FacultyHomeVC: UIViewController, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
-
+    
     @IBOutlet weak var titleLbl: UILabel!
     @IBOutlet weak var profileImgView: UIImageView!
-    
     @IBOutlet weak var collectionView: UICollectionView!
     
     var categoryArr = ["Classroom"]
@@ -24,26 +23,9 @@ class FacultyHomeVC: UIViewController, UICollectionViewDelegate, UICollectionVie
     override func viewWillAppear(_ animated: Bool) {
         if let login = UserDefaults.standard.dictionary(forKey: "login") as? [String:Any] {
             let profile_pic = login["profile_pic"] as! String
-            
             self.profileImgView.sd_setImage(with: URL.init(string: profile_pic)) { img, error, cache, url in
-                
+                print(error)
             }
-            
-//            DispatchQueue.global(qos: .background).async { [weak self] in
-//                if let data = try? Data(contentsOf: URL.init(string: profile_pic)!) {
-//                    if let image = UIImage(data: data) {
-//                        DispatchQueue.main.async {
-//                            self!.profileImgView.image = image
-//                        }
-//                    }
-//                    else {
-//                        self?.profileImgView.image = UIImage.init(named: "user")
-//                    }
-//                }
-//                else {
-//                    self?.profileImgView.image = UIImage.init(named: "user")
-//                }
-//            }
         }
     }
     
@@ -59,10 +41,8 @@ class FacultyHomeVC: UIViewController, UICollectionViewDelegate, UICollectionVie
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categoryCell", for: indexPath) as! CollectionViewCell
-        
         cell.categoryName.text = categoryArr[indexPath.row]
         cell.categoryImgView.image = UIImage.init(named: categoryArr[indexPath.row])
-        
         return cell
     }
     

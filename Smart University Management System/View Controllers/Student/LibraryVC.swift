@@ -11,17 +11,14 @@ import Alamofire
 class LibraryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
     
     @IBOutlet weak var searchBar: UISearchBar!
-    
     @IBOutlet weak var collectionView: UICollectionView!
     
     var booksArr = [[String:Any]]()
     var searchBookArr = [[String:Any]]()
-    
     var courseDict = [String:Any]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         designInit()
         getBooks()
     }
@@ -53,20 +50,16 @@ class LibraryVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
         if let login = UserDefaults.standard.dictionary(forKey: "login") as? [String:Any] {
             print(login)
             let url = "https://apidockerpython.azurewebsites.net/api/library/prediction"
-            
             let param : [String:Any] = [
                 "course_name" : courseDict["course_name"] as! String,
                 "description": courseDict["description"] as! String,
                 "any_suggestion": true
             ]
-            
             let jsonData = try! JSONSerialization.data(withJSONObject: param)
-            
             var request = URLRequest.init(url: URL.init(string: url)!)
             request.httpMethod = "POST"
             request.httpBody = jsonData
             request.headers = HTTPHeaders.init([HTTPHeader.init(name: "Content-Type", value: "application/json")])
-            
             AF.request(request).responseJSON { [self] result in
                 self.dismissLoader()
                 if let value = result.value as? [String:Any] {
@@ -92,7 +85,6 @@ class LibraryVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "bookCell", for: indexPath) as! CollectionViewCell
         let parti = booksArr[indexPath.row]
-        
         cell.bookName.text = parti["title"] as! String
         if let desc = parti["description"] as? String {
             cell.bookDesc.text = desc
@@ -100,13 +92,11 @@ class LibraryVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
         else {
             cell.bookDesc.text = parti["title"] as! String
         }
-        
         if let thumb = parti["thumbnail"] as? String {
             cell.bookImgView.sd_setImage(with: URL.init(string: thumb), placeholderImage: UIImage.init(named: "book_place.png"), options: []) { img, error, cache, url in
                 print(error)
             }
         }
-        
         return cell
     }
     
