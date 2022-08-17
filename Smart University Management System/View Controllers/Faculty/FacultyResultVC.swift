@@ -8,19 +8,17 @@
 import UIKit
 
 class FacultyResultVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
-    @IBOutlet weak var examNameLbl: UILabel!
-    var examName = String()
     
+    @IBOutlet weak var examNameLbl: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
+    var examName = String()
     var resultDict = [String:Any]()
     var totalMark = Int()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         examNameLbl.text = examName
-        
         tableView.tableFooterView = UIView()
         tableView.rowHeight = 50
         tableView.separatorInset = UIEdgeInsets.init(top: 0, left: 16, bottom: 0, right: 16)
@@ -32,15 +30,12 @@ class FacultyResultVC: UIViewController, UITableViewDataSource, UITableViewDeleg
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "resultCell", for: indexPath) as! TableViewCell
-        
         let parti = Array(resultDict.keys)[indexPath.row]
         let arr = resultDict[parti] as! [[String:Any]]
         let dict = arr[0]
         cell.resultStudentId.text = dict["id"] as! String
         cell.resultStudentName.text = dict["name"] as! String
-        
         let mark = Int(dict["total_marks"] as! String)!
-        
         let score = (mark * 100) / totalMark
         if score > 59 {
             cell.resultStudentMark.textColor = .systemGreen
@@ -51,9 +46,7 @@ class FacultyResultVC: UIViewController, UITableViewDataSource, UITableViewDeleg
         else {
             cell.resultStudentMark.textColor = .systemRed
         }
-        
         cell.resultStudentMark.text = String(mark)
-        
         return cell
     }
     

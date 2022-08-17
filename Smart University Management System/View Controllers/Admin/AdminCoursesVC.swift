@@ -11,12 +11,11 @@ import Alamofire
 class AdminCoursesVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
 
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var addCourse: UIButton!
+    
     var courseArr = [[String:Any]]()
     var searchCourseArr = [[String:Any]]()
-    
-    @IBOutlet weak var searchBar: UISearchBar!
-    
-    @IBOutlet weak var addCourse: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,18 +30,14 @@ class AdminCoursesVC: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     func getCourses() {
         let url = "https://apidockerpython.azurewebsites.net//api/subject/select"
-        
         let param : [String:Any] = [
             "program_id" : ""
         ]
-        
         let jsonData = try! JSONSerialization.data(withJSONObject: param)
-
         var request = URLRequest.init(url: URL.init(string: url)!)
         request.httpMethod = "POST"
         request.httpBody = jsonData
         request.headers = HTTPHeaders.init([HTTPHeader.init(name: "Content-Type", value: "application/json")])
-        
         AF.request(request).responseJSON { [self] result in
             if let value = result.value as? [String:Any] {
                 courseArr = value["data"] as! [[String:Any]]
@@ -74,7 +69,7 @@ class AdminCoursesVC: UIViewController, UICollectionViewDelegate, UICollectionVi
         }
     }
     
-    //MARK: Collectionview delegate
+    //MARK: Collectionview delegates
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return courseArr.count
@@ -86,7 +81,6 @@ class AdminCoursesVC: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "studentCell", for: indexPath) as! CollectionViewCell
-        
         let parti = courseArr[indexPath.row]
         let subject = parti["course_name"] as! String
         let category = parti["program_name"] as! String
@@ -96,13 +90,7 @@ class AdminCoursesVC: UIViewController, UICollectionViewDelegate, UICollectionVi
         cell.studentEmail.text = category
         return cell
     }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        studentDict = studentArr[indexPath.row]
-//        self.performSegue(withIdentifier: "studentInfoSegue", sender: nil)
-    }
-    
-    
+  
     @IBAction func backAction(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }

@@ -19,7 +19,6 @@ class ProfileVC: UIViewController {
     @IBOutlet weak var emailLbl: UILabel!
     @IBOutlet weak var contactLbl: UILabel!
     @IBOutlet weak var addressLbl: UILabel!
-    
     @IBOutlet weak var profileImgView: UIImageView!
 
     override func viewDidLoad() {
@@ -46,26 +45,8 @@ class ProfileVC: UIViewController {
             let country = login["country"] as! String
             let postal = login["postalcode"] as! String
             let profile_pic = login["profile_pic"] as! String
-            
             self.profileImgView.sd_setImage(with: URL.init(string: profile_pic)) { img, error, cache, url in
-                
             }
-//            DispatchQueue.global(qos: .background).async { [weak self] in
-//                if let data = try? Data(contentsOf: URL.init(string: profile_pic)!) {
-//                    if let image = UIImage(data: data) {
-//                        DispatchQueue.main.async {
-//                            self!.profileImgView.image = image
-//                        }
-//                    }
-//                }
-//            }
-            
-            
-//            self.profileImgView.sd_setImage(with: URL.init(string: profile_pic)) { img, error, cache, url in
-//            }
-            
-            
-            
             fnameLbl.text = firstName
             lnameLbl.text = lastName
             emailLbl.text = email
@@ -78,25 +59,18 @@ class ProfileVC: UIViewController {
         if let login = UserDefaults.standard.dictionary(forKey: "login") as? [String:Any] {
             var config = YPImagePickerConfiguration()
             config.usesFrontCamera = true
-
             let newCapturePhotoImage = UIImage.init(named: "camera")
             ?? config.icons.capturePhotoImage
-
             config.icons.capturePhotoImage = newCapturePhotoImage
-
             let picker = YPImagePicker(configuration: config)
             picker.didFinishPicking { [unowned picker] items, _ in
                 if let photo = items.singlePhoto {
                     print(photo.fromCamera) // Image source (camera or library)
                     let profile_picture = photo.image
-
                     let id = login["id"] as! String
-                    
                     do {
                         let account = try AZSCloudStorageAccount.init(fromConnectionString: "DefaultEndpointsProtocol=https;AccountName=facedatafiles;AccountKey=tN1Or/KuNMygxUwj4lD5EtGLxc1Larnq2uRQZ2s9fvAq5bCcoQIcUSTkEXiPsX5I31YIz164aQ3gpXirkxB0vQ==;EndpointSuffix=core.windows.net")
-                        
                         let client = account.getBlobClient()
-                        
                         let blobContainer = client.containerReference(fromName: "profile")
                         blobContainer.createContainerIfNotExists(with: AZSContainerPublicAccessType.container, requestOptions: nil, operationContext: nil) { error, succ in
                             if error == nil {
@@ -106,19 +80,14 @@ class ProfileVC: UIViewController {
                                     if error == nil {
                                         print("Success")
                                         print(blob.storageUri.primaryUri)
-                                        
                                         let url = "https://apidockerpython.azurewebsites.net//api/update"
-                                        
                                         var loginDict = login
                                         loginDict["profile_pic"] = blob.storageUri.primaryUri.absoluteString
-                                        
                                         let jsonData = try! JSONSerialization.data(withJSONObject: loginDict)
-                                        
                                         var request = URLRequest.init(url: URL.init(string: url)!)
                                         request.httpMethod = "POST"
                                         request.httpBody = jsonData
                                         request.headers = HTTPHeaders.init([HTTPHeader.init(name: "Content-Type", value: "application/json")])
-                                        
                                         AF.request(request).responseJSON { [self] result in
                                             if let value = result.value as? [String:Any] {
                                                 let status_code = value["status_code"] as! Int
@@ -126,12 +95,9 @@ class ProfileVC: UIViewController {
                                                     //Successful
                                                     let data = value["data"] as! [[String:Any]]
                                                     let dict = data[0]
-                                                    
                                                     UserDefaults.standard.set(dict, forKey: "login")
                                                     UserDefaults.standard.synchronize()
-                                                    
                                                     getData()
-                                                    
                                                 }
                                                 else {
                                                     self.view.makeToast("Something went wrong!")
@@ -146,10 +112,6 @@ class ProfileVC: UIViewController {
                     catch {
                         print(error)
                     }
-
-                    print(photo.originalImage) // original image selected by the user, unfiltered
-                    print(photo.modifiedImage) // Transformed image, can be nil
-                    print(photo.exifMeta) // Print exif meta data of original image.
                 }
                 picker.dismiss(animated: true, completion: nil)
             }
@@ -160,7 +122,6 @@ class ProfileVC: UIViewController {
     @IBAction func logoutAction(_ sender: Any) {
         UserDefaults.standard.removeObject(forKey: "login")
         UserDefaults.standard.synchronize()
-        
         self.navigationController?.popToRootViewController(animated: true)
     }
     

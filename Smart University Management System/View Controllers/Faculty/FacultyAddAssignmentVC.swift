@@ -16,14 +16,13 @@ class FacultyAddAssignmentVC: UIViewController, UITextFieldDelegate, UIDocumentP
 
     @IBOutlet weak var answerTxtView: UITextView!
     @IBOutlet weak var questionTxtField: SkyFloatingLabelTextField!
-    let MAX_LENGTH_PHONENUMBER = 3
-    let ACCEPTABLE_NUMBERS     = "0123456789"
     @IBOutlet weak var markTxtField: UITextField!
-    
-    var selectedFile = URL.init(string: "")
-    
     @IBOutlet weak var webPreview: WKWebView!
     @IBOutlet weak var webViewHeightConstant: NSLayoutConstraint!
+    
+    let MAX_LENGTH_PHONENUMBER = 3
+    let ACCEPTABLE_NUMBERS     = "0123456789"
+    var selectedFile = URL.init(string: "")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,20 +31,6 @@ class FacultyAddAssignmentVC: UIViewController, UITextFieldDelegate, UIDocumentP
     }
     
     @IBAction func addAction(_ sender: Any) {
-        
-//        if let pdf = PDFDocument(url: selectedFile!) {
-//            let pageCount = pdf.pageCount
-//            var documentContent = String()
-//
-//            for i in 0 ..< pageCount {
-//                guard let page = pdf.page(at: i) else { continue }
-//                guard let pageContent = page.string else { continue }
-//                documentContent.append(pageContent)
-//            }
-//
-//            print(documentContent)
-//        }
-        
         if selectedFile == nil {
             questionTxtField.errorMessage = "Question"
         }
@@ -53,8 +38,6 @@ class FacultyAddAssignmentVC: UIViewController, UITextFieldDelegate, UIDocumentP
             self.view.makeToast("Please enter total marks for this question")
         }
         else {
-//            let dict = ["question": questionTxtField.text!, "answer": answerTxtView.text!, "mark": markTxtField.text!]
-//            NotificationCenter.default.post(name: NSNotification.Name.init(rawValue: "question"), object: nil, userInfo: dict)
             self.dismiss(animated: true)
         }
     }
@@ -72,7 +55,6 @@ class FacultyAddAssignmentVC: UIViewController, UITextFieldDelegate, UIDocumentP
             webPreview.loadFileURL(url, allowingReadAccessTo: url)
             let request = URLRequest(url: url)
             webPreview.load(request)
-            
             webViewHeightConstant.constant = 350
             self.view.layoutIfNeeded()
         }

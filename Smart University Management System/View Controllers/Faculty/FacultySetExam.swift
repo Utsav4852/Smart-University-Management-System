@@ -13,46 +13,34 @@ import Alamofire
 class FacultySetExam: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var examName: SkyFloatingLabelTextField!
-    
     @IBOutlet weak var startDateBtn: UIButton!
     @IBOutlet weak var endDateBtn: UIButton!
-    
     @IBOutlet weak var tableView: UITableView!
-    
     @IBOutlet weak var heightConstant: NSLayoutConstraint!
     @IBOutlet weak var tableMainView: UIView!
     @IBOutlet weak var tableViewHeightConstant: NSLayoutConstraint!
+    @IBOutlet weak var totalMarksLbl: UILabel!
+    @IBOutlet weak var durationTxtField: UITextField!
     
     var questionAnswerArr = [[String:Any]]()
-    
-    @IBOutlet weak var totalMarksLbl: UILabel!
-    
     var startDate: Date? = nil
     var endDate: Date? = nil
-    
     var tableViewHeight: CGFloat {
         tableView.layoutIfNeeded()
         return tableView.contentSize.height
     }
-    
     var courseName = String()
     var totalMark = 0
-    
-    @IBOutlet weak var durationTxtField: UITextField!
-    
     let MAX_LENGTH_PHONENUMBER = 3
     let ACCEPTABLE_NUMBERS = "0123456789"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         tableViewHeightConstant.constant = 0
         self.view.layoutIfNeeded()
-        
         tableView.separatorInset = UIEdgeInsets.init(top: 0, left: 16, bottom: 0, right: 16)
         tableView.tableFooterView = UIView()
         tableView.reloadData()
-        
         NotificationCenter.default.addObserver(self, selector: #selector(getQuestion(noti:)), name: NSNotification.Name.init(rawValue: "question"), object: nil)
     }
     
@@ -63,7 +51,6 @@ class FacultySetExam: UIViewController, UITableViewDataSource, UITableViewDelega
         self.tableView.performBatchUpdates(nil) { complete in
             self.tableViewHeightConstant.constant = self.tableViewHeight
             self.view.layoutIfNeeded()
-            
             let arr = self.questionAnswerArr.map { Int($0["mark"]! as! String)! }
             self.totalMark = arr.reduce(0, +)
             self.totalMarksLbl.text = "\(self.totalMark)"
@@ -86,13 +73,10 @@ class FacultySetExam: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
-        
         let parti = questionAnswerArr[indexPath.row]
-        
         cell.questionLbl.text = "\(indexPath.row + 1). \(parti["question"] as! String)"
         cell.answerLbl.text = parti["answer"] as! String
         cell.markLbl.text = parti["mark"] as! String
-        
         return cell
     }
     
@@ -109,11 +93,8 @@ class FacultySetExam: UIViewController, UITableViewDataSource, UITableViewDelega
         let picker = DateTimePicker.create(minimumDate: min, maximumDate: max)
         picker.highlightColor = UIColor(named: "Color")!
         picker.doneBackgroundColor = UIColor(named: "Color")
-        
         picker.completionHandler = { date in
-            
             self.startDate = date
-            
             let formatter = DateFormatter()
             formatter.dateFormat = "dd/MM/yyyy hh:mm a"
             self.startDateBtn.setTitle(formatter.string(from: date), for: .normal)
@@ -127,11 +108,8 @@ class FacultySetExam: UIViewController, UITableViewDataSource, UITableViewDelega
         let picker = DateTimePicker.create(minimumDate: min, maximumDate: max)
         picker.highlightColor = UIColor(named: "Color")!
         picker.doneBackgroundColor = UIColor(named: "Color")
-        
         picker.completionHandler = { date in
-            
             self.endDate = date
-            
             let formatter = DateFormatter()
             formatter.dateFormat = "dd/MM/yyyy hh:mm a"
             self.endDateBtn.setTitle(formatter.string(from: date), for: .normal)
@@ -159,30 +137,22 @@ class FacultySetExam: UIViewController, UITableViewDataSource, UITableViewDelega
             self.view.makeToast("Please add questions")
         }
         else {
-            
             if let login = UserDefaults.standard.dictionary(forKey: "login") as? [String:Any] {
-                
                 let id = login["id"] as! String
                 let firstName = login["firstname"] as! String
                 let lastName = login["lastname"] as! String
                 let name = "\(firstName) \(lastName)"
-                
                 let url = "https://coursepred.azurewebsites.net/api/exam/insert"
-                
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "dd/MM/yyyy HH:mm"
                 let start = dateFormatter.string(from: startDate!)
                 let end = dateFormatter.string(from: endDate!)
-                
                 let questionDict = ["\(id)": questionAnswerArr]
-                
                 let data = try! JSONSerialization.data(withJSONObject: questionDict, options: .withoutEscapingSlashes)
                 let questionStr = String(data: data, encoding: String.Encoding.utf8)
-                
                 let totalMarkDict = [id: "\(totalMark)"]
                 let totalMarkData = try! JSONSerialization.data(withJSONObject: totalMarkDict, options: .withoutEscapingSlashes)
                 let totalMarkStr = String(data: totalMarkData, encoding: String.Encoding.utf8)
-                
                 let param : [String:Any] = [
                     "exam_id" : UUID().uuidString,
                     "exam_name"  : examName.text!,
@@ -195,14 +165,11 @@ class FacultySetExam: UIViewController, UITableViewDataSource, UITableViewDelega
                     "total_marks" : totalMarkStr,
                     "duration": durationTxtField.text!
                 ]
-                
                 let jsonData = try! JSONSerialization.data(withJSONObject: param)
-                
                 var request = URLRequest.init(url: URL.init(string: url)!)
                 request.httpMethod = "POST"
                 request.httpBody = jsonData
                 request.headers = HTTPHeaders.init([HTTPHeader.init(name: "Content-Type", value: "application/json")])
-                
                 AF.request(request).responseJSON { [self] result in
                     if let value = result.value as? [String:Any] {
                         if let status = value["status"] as? Int {
@@ -222,6 +189,4 @@ class FacultySetExam: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBAction func closeAction(_ sender: Any) {
         self.dismiss(animated: true)
     }
-    
-    
 }

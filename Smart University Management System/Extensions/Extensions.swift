@@ -28,7 +28,6 @@ extension SkyFloatingLabelTextField {
     }
 }
 
-
 extension UITextField {
     func isValidate() -> Bool {
         if self.text!.count == 0 {

@@ -39,7 +39,4 @@ class CollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var examResultScore: UILabel!
     @IBOutlet weak var examYourScoreLbl: UILabel!
     @IBOutlet weak var examViewBtn: UIButton!
-    
-    
-    
 }

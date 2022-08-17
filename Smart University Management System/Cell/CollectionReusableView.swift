@@ -9,7 +9,5 @@ import UIKit
 
 class CollectionReusableView: UICollectionReusableView {
     @IBOutlet weak var titleLbl: UILabel!
-    
     @IBOutlet weak var refreshExamBtn: UIButton!
-    
 }

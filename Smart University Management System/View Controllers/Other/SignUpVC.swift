@@ -13,7 +13,6 @@ import Toast_Swift
 class SignUpVC: UIViewController {
     
     @IBOutlet weak var topView: UIView!
-    
     @IBOutlet weak var studentIDTxtField: SkyFloatingLabelTextField!
     @IBOutlet weak var firstNameTxtField: SkyFloatingLabelTextField!
     @IBOutlet weak var lastNameTxtField: SkyFloatingLabelTextField!
@@ -43,12 +42,10 @@ class SignUpVC: UIViewController {
         }
         else {
             //Sign up
-            
             let url = "https://1o739743u5.execute-api.us-east-1.amazonaws.com/getV1/putdyanamodb"
             let param : [String:Any] = [
                 "id" : studentIDTxtField.text!,
             ]
-            
             AF.request(url, method: .get, parameters: param).responseJSON { result in
                 if let value = result.value as? [String:Any] {
                     if value["Count"] as! Int == 0 {
@@ -66,11 +63,9 @@ class SignUpVC: UIViewController {
     
     func signUp() {
         let url = "https://1o739743u5.execute-api.us-east-1.amazonaws.com/v1/putdyanamodb"
-        
         let header:HTTPHeaders = [
             "Content-Type" : "application/json",
         ]
-        
         let param : [String:String] = [
             "id":studentIDTxtField.text!,
             "first_name":firstNameTxtField.text!,
@@ -78,13 +73,11 @@ class SignUpVC: UIViewController {
             "email":emailTxtField.text!,
             "password":passwordTxtField.text!,
         ]
-        
         var request =  URLRequest(url: URL(string: url)!)
             request.httpMethod = "POST"
         let bodyStr = jsonToString(json: param)
         request.httpBody = bodyStr.data(using: .utf8)
         request.headers = header
-        
         AF.request(request).responseJSON { value in
             let result = value.result
             switch result {
@@ -92,7 +85,6 @@ class SignUpVC: UIViewController {
                 self.dismiss(animated: true, completion: nil)
             case .failure :
                 self.view.makeToast("Something went wrong!")
-                
             }
         }
     }
@@ -108,7 +100,6 @@ class SignUpVC: UIViewController {
         return ""
     }
     
-    
     override func viewDidLayoutSubviews() {
         topView.layer.shadowColor = UIColor.black.cgColor
         topView.layer.shadowOffset = CGSize.zero
@@ -118,5 +109,4 @@ class SignUpVC: UIViewController {
     @IBAction func closeAction(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
-
 }

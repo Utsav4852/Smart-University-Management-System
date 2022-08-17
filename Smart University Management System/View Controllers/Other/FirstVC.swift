@@ -15,7 +15,6 @@ class FirstVC: UIViewController, UIDocumentPickerDelegate, UIImagePickerControll
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -41,22 +40,13 @@ class FirstVC: UIViewController, UIDocumentPickerDelegate, UIImagePickerControll
     }
     
     @IBAction func click(_ sender: Any) {
-        
         let picker = UIImagePickerController()
         picker.delegate = self
         self.present(picker, animated: true, completion: nil)
-        
-//        let documentPickerController = UIDocumentPickerViewController.init(documentTypes: [kUTTypePDF as! String], in: .import)
-//
-//        documentPickerController.delegate = self
-//        self.present(documentPickerController, animated: true, completion: nil)
-        
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        
         let img = info[.originalImage] as! UIImage
-        
         img.detector.crop(type: .face) { result in
             switch result {
             case .success(let croppedImages):
@@ -71,41 +61,12 @@ class FirstVC: UIViewController, UIDocumentPickerDelegate, UIImagePickerControll
                 print(error.localizedDescription)
             }
         }
-        
-        
-//        do {
-//            let account = try AZSCloudStorageAccount.init(fromConnectionString: "DefaultEndpointsProtocol=https;AccountName=facedatafiles;AccountKey=tN1Or/KuNMygxUwj4lD5EtGLxc1Larnq2uRQZ2s9fvAq5bCcoQIcUSTkEXiPsX5I31YIz164aQ3gpXirkxB0vQ==;EndpointSuffix=core.windows.net")
-//
-//            let client = account.getBlobClient()
-//
-//            let blobContainer = client.containerReference(fromName: "kamal")
-//            blobContainer.createContainerIfNotExists(with: AZSContainerPublicAccessType.container, requestOptions: nil, operationContext: nil) { error, succ in
-//                if error == nil {
-//                    let blob = blobContainer.blockBlobReference(fromName: "samaple")
-//
-//                    let img = info[.originalImage] as! UIImage
-//
-//                    blob.upload(from: img.pngData()!) { error in
-//                        if error == nil {
-//                            print("Success")
-//                        }
-//                    }
-//                }
-//            }
-//        }
-//        catch {
-//            print(error)
-//        }
-        
-        
-        
     }
     
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
         if let pdf = PDFDocument(url: urls.first!) {
             let pageCount = pdf.pageCount
             let documentContent = NSMutableAttributedString()
-            
             for i in 0 ..< pageCount {
                 let page = pdf.page(at: i)
                 let pageContent = page?.attributedString
@@ -125,12 +86,6 @@ class FirstVC: UIViewController, UIDocumentPickerDelegate, UIImagePickerControll
     
     @IBAction func studentAction(_ sender: Any) {
         self.performSegue(withIdentifier: "signInSegue", sender: nil)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "signInSegue" {
-            let vc = segue.destination as! SignVC
-        }
     }
 }
 
